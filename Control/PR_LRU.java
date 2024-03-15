@@ -68,7 +68,7 @@ public class PR_LRU
             }
             else
             {
-                int leastRecentFrame = getLeastRecentFrame(framesHistory);
+                int leastRecentFrame = getLeastRecentFrame(framesHistory, iter);
                 frames[leastRecentFrame][iter] = jobQueue.removeFirst();
                 framesHistory[leastRecentFrame][iter] = 0;
             }
@@ -92,14 +92,14 @@ public class PR_LRU
         return pageHit;
     }
 
-    private static int getLeastRecentFrame(int[][] framesHistory)
+    private static int getLeastRecentFrame(int[][] framesHistory, int iter)
     {
         int[] totals = new int[framesHistory.length];
         Arrays.fill(totals, -1);
 
         for (int x = 0; x < framesHistory.length; ++x)
         {
-            for (int y = 0; y < framesHistory[0].length; ++y)
+            for (int y = 0; y < iter; ++y)
             {
                 if (framesHistory[x][y] >= 0)
                 {
