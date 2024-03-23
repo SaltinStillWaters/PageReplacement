@@ -14,7 +14,6 @@ public class Model
     private Deque<String> jobQueue;
     private int totalFrames;
     private String[][] frames;
-    private String[][] cleanedFrames;
     private int[][] framesHistory;
 
     public Model(String jobString, int totalFrames) 
@@ -37,7 +36,7 @@ public class Model
     {
         for (String[] arr : this.frames)
         {
-            Arrays.fill(arr, "-1");
+            Arrays.fill(arr, "");
         }
 
         /*  Legend:
@@ -64,11 +63,6 @@ public class Model
         return jobQueue;
     }
 
-    public String[][] getCleanedFrames()
-    {
-        
-        return cleanedFrames;
-    }
     public String[][] getFrames()
     {
         return frames;

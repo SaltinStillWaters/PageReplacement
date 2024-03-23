@@ -2,6 +2,7 @@ package View;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumnModel;
 
 import Controller.Control;
 
@@ -93,6 +94,16 @@ public class MainFrame extends JFrame
 
         DefaultTableModel tableModel = new DefaultTableModel(data, columns);
         output_table = new JTable(tableModel);
+        
+        TableColumnModel colModel = output_table.getColumnModel();
+        int colCount = colModel.getColumnCount();
+        int width = 25;
+
+        for (int x = 0; x < colCount; ++x)
+        {
+            colModel.getColumn(x).setPreferredWidth(width);
+        }
+
         Dimension tableSize = output_table.getPreferredSize();
 
         if (this.scrollPane != null)

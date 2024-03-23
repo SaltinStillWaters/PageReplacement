@@ -31,7 +31,7 @@ public class PR_LRU
 
             //check if there is still free memory
             int lastFrame = frames.length - 1;
-            if (frames[lastFrame][iter].equals("-1"))
+            if (frames[lastFrame][iter].equals(""))
             {
                 break;
             }
@@ -39,7 +39,7 @@ public class PR_LRU
             for (int x = 0; x < frames.length; ++x)
             {
                 String frameVal = frames[x][iter];
-                if (frameVal.equals("-1"))
+                if (frameVal.equals(""))
                 {
                     frames[x][iter] = jobQueue.removeFirst();
                     framesHistory[x][iter] = 0;
