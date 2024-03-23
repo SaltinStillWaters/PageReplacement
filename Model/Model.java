@@ -7,13 +7,14 @@ import java.util.ArrayDeque;
 import java.util.Arrays;
 import java.util.Deque;
 
-import Control.PR_LRU;
+import Controller.PR_LRU;
 
 public class Model 
 {
     private Deque<String> jobQueue;
     private int totalFrames;
     private String[][] frames;
+    private String[][] cleanedFrames;
     private int[][] framesHistory;
 
     public Model(String jobString, int totalFrames) 
@@ -63,6 +64,11 @@ public class Model
         return jobQueue;
     }
 
+    public String[][] getCleanedFrames()
+    {
+        
+        return cleanedFrames;
+    }
     public String[][] getFrames()
     {
         return frames;
